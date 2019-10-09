@@ -10,6 +10,7 @@ class PicturesController < ApplicationController
 
   def create
     @picture = Picture.new(picture_params)
+    @picture.user_id = current_user.id
     if params[:back]
       render :new
     else
@@ -19,6 +20,10 @@ class PicturesController < ApplicationController
         render :new
       end
     end
+  end
+
+  def show
+    @favorite = current_user.favorites.find_by(picture_id: @picture.id)
   end
 
   def update
