@@ -1,0 +1,22 @@
+<h1>投稿一覧</h1>
+
+  <p><%= notice %></p>
+
+  <% @pictures.each do |picture| %>
+
+    <div class="index_image">
+      <%= picture.image %>
+      <%= picture.content%>
+    </div>
+    <div class="index_show">
+      <%= link_to '詳細', picture_path(picture.id) %>
+    </div>
+    <div class="index_edit">
+      <%= link_to '編集', edit_picture_path(picture.id), data:{ confirm:'本当に編集していいですか？'} %>
+    </div>
+    <div class="index_destroy">
+      <%= link_to '削除', picture_path(picture.id), method: :delete, data:{ confirm:'本当に削除していいですか？'} %>
+    </div>
+  <% end %>
+
+  <%= link_to '投稿する', new_picture_path %>
