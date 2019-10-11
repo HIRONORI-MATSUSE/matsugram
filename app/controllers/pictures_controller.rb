@@ -1,5 +1,6 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: [:show, :edit, :update, :destroy]
+  #edit, :update, :destroyの時は ensure_correct_userを呼び出す。別のユーザーが編集できない様にする
   before_action :ensure_correct_user,{only:[:edit, :update, :destroy]}
 
   def index
@@ -49,7 +50,7 @@ class PicturesController < ApplicationController
     @picture = Picture.new(picture_params)
     render :new if @picture.invalid?
   end
-
+#投稿者のユーザidとログイン中のユーザーが異なる場合、権限がありませんとnoticeに出力させる
   def ensure_correct_user
     if @picture.user.id != current_user.id 
       flash[:notice] = "権限がありません"
