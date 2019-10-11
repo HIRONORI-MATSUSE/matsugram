@@ -4,8 +4,9 @@
   <%= image_tag @user.user_image.url if @user.user_image.url %>
 </div>
 
-
+<% unless @user.id != current_user.id %>
 <%= link_to "プロフィール画像設定", edit_user_path %>
+<% end %>
 <%= link_to "お気に入り一覧へ", favorites_path %>
 <%= link_to "投稿一覧画面へ", pictures_path %>
 <%= link_to "投稿する", new_picture_path %>

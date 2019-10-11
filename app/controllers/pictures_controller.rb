@@ -1,5 +1,6 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: [:show, :edit, :update, :destroy]
+  before_action :ensure_correct_user,{only:[:edit, :update, :destroy]}
 
   def index
     @pictures = Picture.all
@@ -48,6 +49,14 @@ class PicturesController < ApplicationController
     @picture = Picture.new(picture_params)
     render :new if @picture.invalid?
   end
+
+  def ensure_correct_user
+    if @picture.user.id != current_user.id 
+      flash[:notice] = "権限がありません"
+      redirect_to pictures_path
+    end
+  end
+
 
   private
 
