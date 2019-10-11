@@ -1,7 +1,11 @@
-<h1><%= @user.name %>のページ</h1>
-
 <p>メールアドレス: <%= @user.email %></p>
 
-<%= link_to '一覧ページへ', pictures_path %>
+<div class="show_image">
+  <%= image_tag @user.user_image.url if @user.user_image.url %>
+</div>
 
-<%= link_to '投稿する', new_picture_path %>
+
+<%= link_to "プロフィール画像設定", edit_user_path %>
+<%= link_to "お気に入り一覧へ", favorites_path %>
+<%= link_to "投稿一覧画面へ", pictures_path %>
+<%= link_to "投稿する", new_picture_path %>

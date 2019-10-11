@@ -1,0 +1,12 @@
+<h1>プロフィール画像設定</h1>
+
+<%= form_with(model: @user, local: true) do |form| %>
+  <br>
+    <%= form.file_field :user_image %>
+    <%= form.hidden_field :user_image_cache%>
+    <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<%= link_to "マイページへ", user_path(current_user) %>

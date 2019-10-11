@@ -1,13 +1,24 @@
-<h1>詳細画面</h1>
-<%= @picture.image %>
-<%= @picture.content%>
+<h1>投稿詳細画面</h1>
+<div class="show_image">
+  <%= image_tag @picture.image.url if @picture.image.url %>
+</div>
+<div class="show_content">
+  <%= @picture.content if @picture.content %>
+</div>
 
-<% unless @picture.user_id == current_user.id %>
-  <% if @favorite.present? %>
-    <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
-  <% else %>
-    <%= link_to 'お気に入りする', favorites_path(picture_id: @picture.id), method: :post, class: 'btn btn-primary' %>
-  <% end %>
+
+  <div class="favorite">
+    <% unless @picture.user_id == current_user.id %>
+      <% if @favorite.present? %>
+        <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
+      <% else %>
+        <%= link_to 'お気に入りする', favorites_path(picture_id: @picture.id), method: :post, class: 'btn btn-primary' %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="edit_menu">
+    <% if current_user.id == @picture.user.id %>
+    <div class="show_edit"><%= link_to '編集', edit_picture_path %></div>
+  </div>
 <% end %>
-
-<%= link_to '一覧ページへ', pictures_path %>
+<%= link_to "投稿一覧画面にもどる", pictures_path %>

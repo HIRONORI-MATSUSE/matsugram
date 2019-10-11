@@ -1,0 +1,130 @@
+body{
+  margin: 0;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+  text-align: center;
+}
+
+header{
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  background-color: red;
+  .app_name{
+    font-size: 1.8rem;
+    margin-left: 20px;
+    a{
+      text-decoration: none;
+      color: #fff;
+    }
+  }
+
+  .header_manu{
+    font-size: 1rem;
+    display: flex;
+    flex-grow: 3;
+    justify-content: flex-end;
+    .profile{
+      margin-right: 30px;
+      // text-align: right
+      a{
+        text-decoration: none;
+        color: #fff;
+      }
+     }
+
+     .new_post{
+       margin-right: 30px;
+       a{
+         text-decoration: none;
+         color: #fff;
+       }
+      }
+
+    .logout{
+      margin-right: 30px;
+      a{
+        text-decoration: none;
+        color: #fff;
+      }
+    }
+
+    .crrent_user{
+      margin-right: 30px;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .sign_up{
+      margin-right: 30px;
+      // text-align: right;
+      a{
+        text-decoration: none;
+        color: #fff;
+      }
+    }
+
+    .login{
+      margin-right: 30px;
+      // text-align: right;
+      a{
+        text-decoration: none;
+        color: #fff;
+      }
+    }
+  }
+}
+
+.favorite{
+  display: flex;
+  justify-content: center;
+}
+
+
+.main-container {
+  background-image: image-url("");
+  height: 800px;
+  background-size:cover;
+  width: 100%;
+}
+
+//スタイル全体の設定
+.contents{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  align-items: center;
+}
+// 繰り返す処理の設定
+
+.index_picture{
+  border: solid 1px black;
+  padding-bottom: 10px;
+
+  .index_picture_menu{
+    display: flex;
+    justify-content:space-around;
+  }
+}
+
+.show_image{
+  width: auto;
+  height: auto;
+  object-fit: cover;
+}
+
+
+.edit_menu{
+  display: flex;
+  justify-content: center;
+}
+
+footer{
+  margin-top:  auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

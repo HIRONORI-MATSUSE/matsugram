@@ -1,0 +1,16 @@
+<h1>お気に入り一覧</h1>
+
+<div class="favorites_contents">
+  <% @favorite.each do |favorite| %>
+
+  <div class="index_picture">
+    <div class="index_user_name">ユーザー名：<%= favorite.user.name %></div>
+    <%= image_tag favorite.picture.image.url if favorite.picture.image.url %>
+    <div class=""><%= favorite.picture.content if favorite.picture.content %></div>
+  </div>
+  <br>
+  <% end %>
+
+  <%= link_to "マイページへ", user_path(current_user) %>
+
+</div>

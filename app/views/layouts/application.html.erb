@@ -1,28 +1,39 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Matsugram</title>
+    <title>matsugram</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Noto+Sans+JP:400,700" rel="stylesheet">
   </head>
-
   <body>
-    <% flash.each do |key, value| %>
-      <%= content_tag(:div, value, class: "#{key}") %>
+    <header>
+      <div class="app_name"><%= link_to "MATSUGRAM", pictures_path %></div>
+      <div class="header_manu">
+        <% if logged_in? %>
+        <div class="profile"><%= link_to "マイページ", user_path(current_user.id) %></div>
+        <div class="new_post"><%= link_to "投稿一覽", pictures_path %></div>
+        <div class="new_post"><%= link_to "投稿画面", new_picture_path %></div>
+        <div class="new_post"><%= link_to "お気に入り一覽", favorites_path %></div>
+        <div class="logout"><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></div>
+        <div class="crrent_user">ユーザー名：<%= current_user.name %></div>
+        <% else %>
+        <div class="sign_up"><%= link_to "新規登録", new_user_path %></div>
+        <div class="login"><%= link_to "ログイン", new_session_path %></div>
+        <% end %>
+      </div>
+    </header>
+    <% flash.each do |key,value| %>
+    <%= content_tag(:div,value,class:"#{key}")%>
     <% end %>
-
-    <% if logged_in? %>
-      <%= link_to "Profile", user_path(current_user.id) %>
-      <%= link_to "Logout", session_path(current_user.id), method: :delete %>
-      <%= current_user.name %>
-    <% else %>
-      <%= link_to "Sign up", new_user_path %>
-      <%= link_to "Login", new_session_path %>
-    <% end %>
-
-    <%= yield %>
+        <%= yield %>
+        <footer>
+          <div>
+            <li>MATSUGRAM</li>
+            <li>© 2019 Copyright MATSUSE</li>
+          </div>
+        </footer>
   </body>
 </html>
