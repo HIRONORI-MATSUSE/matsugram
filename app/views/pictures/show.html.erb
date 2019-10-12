@@ -5,8 +5,6 @@
 <div class="show_content">
   <%= @picture.content if @picture.content %>
 </div>
-
-
   <div class="favorite">
     <% unless @picture.user_id == current_user.id %>
       <% if @favorite.present? %>

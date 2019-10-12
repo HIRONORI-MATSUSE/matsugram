@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
-  #edit, :update, :destroyの時は ensure_correct_userを呼び出す。別のユーザーが編集できない様にする。
   before_action :ensure_correct_user,{only:[:edit, :update, :destroy]}
   def new
     @user = User.new
@@ -29,7 +28,7 @@ class UsersController < ApplicationController
 
   def show
   end
-#ユーザidとログイン中のユーザーが異なる場合、権限がありませんとnoticeに出力させる
+  
   def ensure_correct_user
     if @user.id != current_user.id 
       flash[:notice] = "権限がありません"

@@ -14,4 +14,3 @@ class FavoritesController < ApplicationController
     redirect_to pictures_url, notice: "#{favorite.picture.user.name}さんの投稿をお気に入り解除しました"
   end
 end
-#お気に入り登録を解除するときは、後ろに.destroyを記述する

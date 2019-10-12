@@ -3,16 +3,11 @@
 
   <div class="contents">
     <% @pictures.each do |picture| %>
-
     <div class="index_picture">
       <div class="index_user_name">ユーザー名：<%= picture.user.name %></div>
       <%= image_tag picture.image.url if picture.image.url %>
       <div class=""><%= picture.content if picture.content %></div>
-
-
       <div class="index_picture_menu">
-
-
         <div class="index_show"><%= link_to '詳細', picture_path(picture.id) %></div>
         <% if current_user.id == picture.user.id %>
         <div class="index_edit"><%= link_to "編集", edit_picture_path(picture.id), data: { confirm: '本当に編集していいですか？' } %></div>
@@ -22,5 +17,4 @@
     </div>
     <br>
     <% end %>
-
   </div>

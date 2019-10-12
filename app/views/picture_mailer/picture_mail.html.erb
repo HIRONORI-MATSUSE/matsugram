@@ -1,7 +1,7 @@
-<h1>お問い合わせが完了しました！</h1>
+<h1>投稿が完了しました！</h1>
 
 <h4>お問い合わせ内容の確認</h4>
 
-<h4>画像: <%= @picture.image %></h4>
+<%= image_tag @picture.image.url if @picture.image.url %>
 
-<p>content: <%= @picture.content %></p>
+<%= @picture.content %>

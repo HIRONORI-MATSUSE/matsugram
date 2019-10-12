@@ -1,5 +1,3 @@
-#このままコピペすると文字の色が白の為、注意。
-
 body{
   margin: 0;
 	display: flex;
@@ -11,15 +9,16 @@ body{
 header{
   font-size: 1rem;
   display: flex;
-  flex-direction: column;
   align-items:center;
-  background-color: red;
+  height: 80px;
+  background-color: #afeeee;
+  //justify-conten
   .app_name{
     font-size: 1.8rem;
     margin-left: 20px;
     a{
       text-decoration: none;
-      color: #fff;
+      color: gray;
     }
   }
 
@@ -33,30 +32,33 @@ header{
       // text-align: right
       a{
         text-decoration: none;
-        color: #fff;
+        color: gray;
       }
      }
 
      .new_post{
        margin-right: 30px;
+       // text-align: right
        a{
          text-decoration: none;
-         color: #fff;
+         color: gray;
        }
       }
 
     .logout{
       margin-right: 30px;
+      // text-align: right;
       a{
         text-decoration: none;
-        color: #fff;
+        color: gray;
       }
     }
 
     .crrent_user{
       margin-right: 30px;
+      // text-align: right;
       text-decoration: none;
-      color: #fff;
+      color: gray;
     }
 
     .sign_up{
@@ -64,7 +66,7 @@ header{
       // text-align: right;
       a{
         text-decoration: none;
-        color: #fff;
+        color: gray;
       }
     }
 
@@ -73,25 +75,18 @@ header{
       // text-align: right;
       a{
         text-decoration: none;
-        color: #fff;
+        color: gray;
       }
     }
   }
 }
-
-.favorite{
-  display: flex;
-  justify-content: center;
-}
-
 .main-container {
-  background-image: image-url("");
+  background-image: image-url("snowman-1090261__480.jpg");
   height: 800px;
   background-size:cover;
   width: 100%;
 }
 
-//スタイル全体の設定
 .contents{
   width: 100%;
   display: flex;
@@ -99,7 +94,6 @@ header{
   background-color: #fff;
   align-items: center;
 }
-// 繰り返す処理の設定
 
 .index_picture{
   border: solid 1px black;
@@ -111,16 +105,8 @@ header{
   }
 }
 
-.show_image{
-  width: auto;
-  height: auto;
-  object-fit: cover;
-}
-
-
-.edit_menu{
+.show_edit{
   display: flex;
-  justify-content: center;
 }
 
 footer{
